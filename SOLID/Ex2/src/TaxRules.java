@@ -1,4 +1,3 @@
-package src;
 public class TaxRules {
     public static double taxPercent(String customerType) {
         // hard-coded policy (smell)

@@ -1,11 +1,11 @@
-package src;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("=== Cafeteria Billing ===");
 
-        CafeteriaSystem sys = new CafeteriaSystem();
+        InvoiceRepository repo = new FileStore();
+        CafeteriaSystem sys = new CafeteriaSystem(repo);
         sys.addToMenu(new MenuItem("M1", "Veg Thali", 80.00));
         sys.addToMenu(new MenuItem("C1", "Coffee", 30.00));
         sys.addToMenu(new MenuItem("S1", "Sandwich", 60.00));
