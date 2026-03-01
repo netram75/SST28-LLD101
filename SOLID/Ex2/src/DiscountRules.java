@@ -1,3 +1,4 @@
+package src;
 public class DiscountRules {
     public static double discountAmount(String customerType, double subtotal, int distinctLines) {
         // hard-coded policy (smell)

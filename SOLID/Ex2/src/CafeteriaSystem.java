@@ -1,4 +1,7 @@
+package src;
 import java.util.*;
+
+import TaxRules;
 
 public class CafeteriaSystem {
     private final Map<String, MenuItem> menu = new LinkedHashMap<>();

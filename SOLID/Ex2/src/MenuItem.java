@@ -1,3 +1,4 @@
+package src;
 public class MenuItem {
     public final String id;
     public final String name;
