@@ -2,8 +2,18 @@ import java.util.*;
 
 public class EligibilityEngine {
     private final FakeEligibilityStore store;
+    private final List<EligibilityRule> rules;
 
-    public EligibilityEngine(FakeEligibilityStore store) { this.store = store; }
+    public EligibilityEngine(FakeEligibilityStore store) {
+    this.store = store;
+    this.rules = new ArrayList<>();
+
+    // IMPORTANT: preserve order same as original if-else chain
+    rules.add(new DisciplinaryRule());
+    rules.add(new CgrRule());
+    rules.add(new AttendanceRule());
+    rules.add(new CreditsRule());
+}
 
     public void runAndPrint(StudentProfile s) {
         ReportPrinter p = new ReportPrinter();
@@ -13,22 +23,17 @@ public class EligibilityEngine {
     }
 
     public EligibilityEngineResult evaluate(StudentProfile s) {
+
         List<String> reasons = new ArrayList<>();
         String status = "ELIGIBLE";
 
-        // OCP violation: long chain for each rule
-        if (s.disciplinaryFlag != LegacyFlags.NONE) {
-            status = "NOT_ELIGIBLE";
-            reasons.add("disciplinary flag present");
-        } else if (s.cgr < 8.0) {
-            status = "NOT_ELIGIBLE";
-            reasons.add("CGR below 8.0");
-        } else if (s.attendancePct < 75) {
-            status = "NOT_ELIGIBLE";
-            reasons.add("attendance below 75");
-        } else if (s.earnedCredits < 20) {
-            status = "NOT_ELIGIBLE";
-            reasons.add("credits below 20");
+        for (EligibilityRule rule : rules) {
+            String reason = rule.check(s);
+            if (reason != null) {
+                status = "NOT_ELIGIBLE";
+                reasons.add(reason);
+                break; // IMPORTANT to preserve original else-if behavior
+            }
         }
 
         return new EligibilityEngineResult(status, reasons);
