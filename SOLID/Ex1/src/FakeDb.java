@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class FakeDb implements DatabaseService {
+public class FakeDb {
     private final List<StudentRecord> rows = new ArrayList<>();
 
     public void save(StudentRecord r) { rows.add(r); }
