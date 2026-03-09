@@ -1,0 +1,11 @@
+[33mcafe2c1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Refactor IncidentTicket to immutable using Builder pattern with centralized validation and defensive copying
+[33m6742a45[m Added new assignments immutable-tickets and singleton-metrics
+[33m903f9b4[m Refactored Ex1 (SRP)
+[33m698c82e[m Reset Ex1 to original sir version
+[33m6fcec5d[m[33m ([m[1;31morigin/backup-ex1-advanced[m[33m, [m[1;32mbackup-ex1-advanced[m[33m)[m Reset Ex3 to original sir version
+[33m008804b[m[33m ([m[1;31morigin/backup-ex3-advanced[m[33m, [m[1;32mbackup-ex3-advanced[m[33m)[m Refactor Ex2 with SRP: separated calculator, formatter, and repository
+[33m9f32bdf[m Remove .class files and add gitignore
+[33md2fa13d[m Move Ex2 files into src directory and clean structure
+[33m19f3adc[m Move Ex2 files into src directory and clean structure
+[33m596a1bf[m Reset Ex2 to original version before SRP refactor
+[33m40cd121[m[33m ([m[1;31morigin/backup-advanced-version[m[33m, [m[1;32mbackup-advanced-version[m[33m)[m finished
